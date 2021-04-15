@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import Card from "./Card";
-import { Context } from "../store/appContext";
+
 
 const Section = (props) => {
-  const { store, actions } = useContext(Context);
+
   return (
     <>
       <div className="row mx-3 my-3 py-3 text-danger">
@@ -15,12 +15,18 @@ const Section = (props) => {
             props.info.results.map((element, index) => {
               return (
                 <div className="col-md-4 my-2" key={index}>
-                  <Card title={element.name}
-                  
+                  <Card section ={props.name}
+                  title={element.name}
                   gender={element.gender}
                   hairColor={element.hair_color}
                   eyeColor={element.eye_color}
-
+                  population={element.population}
+                  terrain={element.terrain}
+                  climate={element.climate}
+                  model={element.model}
+                  vehicleClass={element.vehicle_class}
+                  crew={element.crew}
+                  id={index}
                    />
                 </div>
               );

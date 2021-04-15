@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       people: null,
       planets: null,
       vehicles: null,
+      favorites: null
     },
     actions: {
       getFetch: (field, url) => {
@@ -19,6 +20,10 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.error(error.message);
           });
       },
+
+      getFavorites: ()=>{
+        
+      }
 
     },
   };
