@@ -1,18 +1,21 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import swlogo from "../images/sw-logo-gold.png";
 
 const Navbar = () => {
   const { store, actions } = useContext(Context);
   return (
-    <nav className="navbar justify-content-between navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbarColor justify-content-between navbar-expand-lg navbar-light ">
       <Link className="navbar-brand" to="/">
-        <img className="logo" src={swlogo} alt="logo" />
+        <img
+          className="logo"
+          src="https://fontmeme.com/permalink/210416/9bafe9511e07711236523ea9e59c09b4.png"
+          alt="logo"
+        />
       </Link>
       <div className="dropdown">
         <button
-          className="btn btn-primary dropdown-toggle"
+          className="btn btnGreen dropdown-toggle"
           type="button"
           id="dropdownMenuButton"
           data-toggle="dropdown"
@@ -29,21 +32,25 @@ const Navbar = () => {
             <>
               {store.favourites.map((fav, index) => {
                 return (
-                  <Link
+                  <div
                     key={index}
-                    className="dropdown-item my-2 d-flex justify-content-between"
-                    to={`/details/${fav.section}/${fav.id}`}
+                    className="dropdown-item my-2 d-flex justify-content-between align-middle"
                   >
-                    {fav.name}{" "}
+                    <Link
+                      className="text-dark my-auto align-middle"
+                      to={`/details/${fav.section}/${fav.id}`}
+                    >
+                      {fav.name}{" "}
+                    </Link>
                     <button
                       className="btn"
                       onClick={() => {
                         actions.deleteFavourite(index);
                       }}
                     >
-                      <i className="far fa-trash-alt ml-5"></i>
+                      <i className="far fa-trash-alt my-auto ml-5 align-middle"></i>
                     </button>
-                  </Link>
+                  </div>
                 );
               })}
               <div className="dropdown-divider"></div>
@@ -52,7 +59,9 @@ const Navbar = () => {
                 onClick={() => {
                   actions.deleteLocalStorage();
                 }}
-              >Delete all favourites</button>
+              >
+                Delete all favourites
+              </button>
             </>
           ) : (
             <button

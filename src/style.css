@@ -1,9 +1,45 @@
+#root {
+  background-color: rgb(95, 134, 139);
+}
+
+body {
+  background-color: rgb(95, 134, 139);
+}
 .logo {
-  width: 90px;
+  width: 200px;
   object-fit: contain;
 }
 
+.logoSection {
+  width: 200px;
+  object-fit: contain;
+}
 
 hr {
   height: 2px;
+}
+
+.cardTitle {
+  color: white;
+  font-size: 25px;
+  letter-spacing: 0.5px;
+}
+
+.btnGreen {
+  background-color: seashell;
+  color: rgb(20, 14, 14);
+}
+
+.navbarColor {
+  background-color: rgb(183, 187, 168);
+}
+
+.btnFav {
+  background-color: seashell;
+}
+
+
+.btnBrown{
+  background-color: rgb(169,110,69);
+  color: seashell
 }

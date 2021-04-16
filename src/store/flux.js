@@ -22,13 +22,19 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       getFavourites: () => {
+        
         const oldFavs = localStorage.getItem("favourites");
-        setStore({ favourites: JSON.parse(oldFavs) });
+        if(!!oldFavs){
+          setStore({ favourites: JSON.parse(oldFavs) });
+        } else {
+          setStore({favourites: []})
+        }
       },
 
       addFavourites: (favId, favName, favSection) => {
-        const fav = { id: favId, name: favName, section: favSection };
+        const fav = { id: favId, name: favName, section: favSection, added:true };
         const oldFavs = getStore().favourites;
+
         var index = oldFavs.findIndex((x) => x.name === fav.name);
         index === -1
           ? oldFavs.push(fav)
@@ -41,6 +47,16 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
       },
 
+      isAdded: (favName)=>{
+        let added;
+        const oldFavs = getStore().favourites;
+        var index = oldFavs.findIndex((x) => x.name === favName);
+        index === -1
+          ? added = false
+          : added = true;
+          return added;
+      },
+      
       deleteFavourite: (favId) => {
         const favs = getStore().favourites;
         favs.splice(favId, 1);
