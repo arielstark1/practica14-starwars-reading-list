@@ -4,15 +4,15 @@ const getState = ({ getStore, getActions, setStore }) => {
       people: null,
       planets: null,
       vehicles: null,
-      favorites: null
+      favourites: [],
     },
     actions: {
       getFetch: (field, url) => {
         fetch(url, {
           method: "GET",
           headers: {
-            "Content-type": "application/json"
-          }
+            "Content-type": "application/json",
+          },
         })
           .then((resp) => resp.json())
           .then((data) => setStore({ [field]: data }))
@@ -21,9 +21,22 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-      getFavorites: ()=>{
-        
+     setFavourites: (favId, favName, favSection) => {
+       const favs = getStore().favourites;
+       
+       favs.push({"id": favId, "name": favName, "section": favSection});
+       setStore({favourites: favs})  
+     },
+     
+     deleteFavourite: (fav) =>{
+      const favs = getStore().favourites;       
+      const index = favs.indexOf(fav);
+      if(index > -1) {
+        favs.splice(index, 1);
       }
+      setStore({favourites: favs})
+     }
+
 
     },
   };

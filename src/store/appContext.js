@@ -16,9 +16,10 @@ const injectContext = PassedComponent =>{
 
         useEffect(() => {
             console.log("Cargando información...");
-            state.actions.getFetch("people", "https://swapi.dev/api/people/")
-            state.actions.getFetch("planets", "https://swapi.dev/api/planets/")          
-            state.actions.getFetch("vehicles", "https://swapi.dev/api/vehicles/")
+            state.actions.getFetch("people", "https://swapi.dev/api/people/");
+            state.actions.getFetch("planets", "https://swapi.dev/api/planets/");          
+            state.actions.getFetch("vehicles", "https://swapi.dev/api/vehicles/");
+        
 
         }, [])
         return (

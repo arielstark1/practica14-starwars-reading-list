@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 const Card = (props) => {
+  const { store, actions } = useContext(Context);
   return (
     <div className="card">
       <img
@@ -38,18 +40,18 @@ const Card = (props) => {
             to={`/details/${props.section.toLowerCase()}/${props.id}`}
             // "/details/characters/1"
             className="btn btn-outline-primary btn-sm"
-            onClick={() => {
-              // actions.saludo(store);
-              // actions.actualizar(29);
-              // actions.calculo("resta", 15, 8);
-              // actions.setFullmane();
-            }}
-          >
+            >
             Learn more!
           </Link>
-          <Link to="" className="btn btn-outline-warning btn-sm">
+          <button className="btn btn-outline-warning btn-sm" 
+          onClick={ ()=>{
+            actions.setFavourites(props.id, props.title, props.section)
+          }
+
+          }
+            >
             <i className="far fa-heart"></i>
-          </Link>
+          </button>
         </div>
       </div>
     </div>
