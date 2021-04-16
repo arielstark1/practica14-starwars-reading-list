@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const Card = (props) => {
-  const { store, actions } = useContext(Context);
+  const { actions } = useContext(Context);
+
+  
+
   return (
     <div className="card">
       <img
@@ -40,16 +43,15 @@ const Card = (props) => {
             to={`/details/${props.section.toLowerCase()}/${props.id}`}
             // "/details/characters/1"
             className="btn btn-outline-primary btn-sm"
-            >
+          >
             Learn more!
           </Link>
-          <button className="btn btn-outline-warning btn-sm" 
-          onClick={ ()=>{
-            actions.setFavourites(props.id, props.title, props.section)
-          }
-
-          }
-            >
+          <button
+            className="btn btn-outline-warning btn-sm"
+            onClick={() => {
+              actions.addFavourites(props.id, props.title, props.section);
+            }}
+          >
             <i className="far fa-heart"></i>
           </button>
         </div>

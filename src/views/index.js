@@ -4,7 +4,7 @@ import Section from "../components/Section";
 import { Context } from "../store/appContext";
 
 const Home = () => {
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
   return (
     <>
       <Navbar />

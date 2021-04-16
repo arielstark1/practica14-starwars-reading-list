@@ -21,25 +21,52 @@ const getState = ({ getStore, getActions, setStore }) => {
           });
       },
 
-     setFavourites: (favId, favName, favSection) => {
-       const favs = getStore().favourites;
-       
-       favs.push({"id": favId, "name": favName, "section": favSection});
-       setStore({favourites: favs})  
-     },
-     
-     deleteFavourite: (fav) =>{
-      const favs = getStore().favourites;       
-      const index = favs.indexOf(fav);
-      if(index > -1) {
-        favs.splice(index, 1);
-      }
-      setStore({favourites: favs})
-     }
+      getFavourites: () => {
+        const oldFavs = localStorage.getItem("favourites");
+        setStore({ favourites: JSON.parse(oldFavs) });
+      },
 
+      addFavourites: (favId, favName, favSection) => {
+        const fav = { id: favId, name: favName, section: favSection };
+        const oldFavs = getStore().favourites;
+        var index = oldFavs.findIndex((x) => x.name === fav.name);
+        index === -1
+          ? oldFavs.push(fav)
+          : console.log("this element already exists");
 
+        setStore({ favourites: oldFavs });
+        localStorage.setItem(
+          "favourites",
+          JSON.stringify(getStore().favourites)
+        );
+      },
+
+      deleteFavourite: (favId) => {
+        const favs = getStore().favourites;
+        favs.splice(favId, 1);
+        setStore({ favourites: favs });
+        localStorage.setItem(
+          "favourites",
+          JSON.stringify(getStore().favourites)
+        );
+      },
+
+      deleteLocalStorage: () => {
+        localStorage.setItem('favourites', JSON.stringify([]));
+        getActions().getFavourites();
+        
+
+      },
+      // setLocalStorage: () =>{
+      //   const favs = localStorage.getItem(getStore().favourites) ? JSON.parse(localStorage.getItem(getStore().favourites))
+      //   : []
+      // }
     },
   };
 };
 
 export default getState;
+
+//1.  Obtenemos los favoritos del localStorage y los ponemos en el store
+
+// 2. Cuando agrego un favorito, primero lo meto a store y después reescribo el localStore con el nuevo arreglo

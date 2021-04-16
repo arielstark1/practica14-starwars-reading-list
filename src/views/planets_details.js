@@ -6,7 +6,7 @@ import Jumbotron from "../components/Jumbotron";
 import LittleInfo from "../components/LittleInfo";
 
 const PlanetsDetails = (props) => {
-  const { store, actions } = useContext(Context);
+  const { store } = useContext(Context);
   const { id } = props.match.params;
   return (
     <>

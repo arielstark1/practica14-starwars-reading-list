@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { Context } from "../store/appContext";
+import React from "react";
+
 
 const LittleInfo = (props) => {
-  const { store, actions } = useContext(Context);
+
   return (
     <>
       {props.section === "people" && (
