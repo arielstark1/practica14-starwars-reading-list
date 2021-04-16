@@ -6,7 +6,7 @@ import Jumbotron from "../components/Jumbotron";
 import LittleInfo from "../components/LittleInfo";
 
 const PeopleDetails = (props) => {
-  const { store} = useContext(Context);
+  const { store } = useContext(Context);
   const { id } = props.match.params;
   return (
     <>
@@ -15,7 +15,7 @@ const PeopleDetails = (props) => {
           <Navbar />
           <div className="container">
             <Jumbotron info={store.people} id={id} />
-            <hr className="my-4 bg-danger" />
+            <hr className="my-4" />
             <div className="row">
               <LittleInfo
                 section={"people"}

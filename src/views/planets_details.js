@@ -13,19 +13,19 @@ const PlanetsDetails = (props) => {
       {!!store.planets ? (
         <>
           <Navbar />
-      <div className="container">
-        <Jumbotron info={store.planets} id={id} />
-        <hr className="my-4 bg-danger" />
-        <div className="row">
-          <LittleInfo
-            section={"planets"}
-            name={store.planets.results[id].name}
-            rotationPeriod={store.planets.results[id].rotation_period}
-            orbitalPeriod={store.planets.results[id].orbital_period}
-            climate={store.planets.results[id].climate}
-            gravity={store.planets.results[id].gravity}
-            terrain={store.planets.results[id].terrain}
-            />
+          <div className="container">
+            <Jumbotron info={store.planets} id={id} />
+            <hr className="my-4" />
+            <div className="row">
+              <LittleInfo
+                section={"planets"}
+                name={store.planets.results[id].name}
+                rotationPeriod={store.planets.results[id].rotation_period}
+                orbitalPeriod={store.planets.results[id].orbital_period}
+                climate={store.planets.results[id].climate}
+                gravity={store.planets.results[id].gravity}
+                terrain={store.planets.results[id].terrain}
+              />
             </div>
           </div>
         </>

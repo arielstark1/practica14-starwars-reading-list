@@ -20,19 +20,23 @@ const getState = ({ getStore, getActions, setStore }) => {
             console.error(error.message);
           });
       },
-
+      
       getFavourites: () => {
-        
         const oldFavs = localStorage.getItem("favourites");
-        if(!!oldFavs){
+        if (!!oldFavs) {
           setStore({ favourites: JSON.parse(oldFavs) });
         } else {
-          setStore({favourites: []})
+          setStore({ favourites: [] });
         }
       },
 
       addFavourites: (favId, favName, favSection) => {
-        const fav = { id: favId, name: favName, section: favSection, added:true };
+        const fav = {
+          id: favId,
+          name: favName,
+          section: favSection,
+          added: true,
+        };
         const oldFavs = getStore().favourites;
 
         var index = oldFavs.findIndex((x) => x.name === fav.name);
@@ -47,16 +51,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
       },
 
-      isAdded: (favName)=>{
+      isAdded: (favName) => {
         let added;
         const oldFavs = getStore().favourites;
         var index = oldFavs.findIndex((x) => x.name === favName);
-        index === -1
-          ? added = false
-          : added = true;
-          return added;
+        index === -1 ? (added = false) : (added = true);
+        return added;
       },
-      
+
       deleteFavourite: (favId) => {
         const favs = getStore().favourites;
         favs.splice(favId, 1);
@@ -68,21 +70,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       deleteLocalStorage: () => {
-        localStorage.setItem('favourites', JSON.stringify([]));
+        localStorage.setItem("favourites", JSON.stringify([]));
         getActions().getFavourites();
-        
-
       },
-      // setLocalStorage: () =>{
-      //   const favs = localStorage.getItem(getStore().favourites) ? JSON.parse(localStorage.getItem(getStore().favourites))
-      //   : []
-      // }
     },
   };
 };
 
 export default getState;
-
-//1.  Obtenemos los favoritos del localStorage y los ponemos en el store
-
-// 2. Cuando agrego un favorito, primero lo meto a store y después reescribo el localStore con el nuevo arreglo

@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "./Card";
+import { Context } from "../store/appContext";
 
 const Section = (props) => {
+  const { actions } = useContext(Context);
+
   return (
     <>
       <div className="row mx-3 my-3 py-3 sectionTitle">
-        <h2><img className="logoSection" src={props.logo} alt="people" /></h2>
+        <h2>
+          <img className="logoSection" src={props.logo} alt="people" />
+        </h2>
       </div>
       <div className="container">
         <div className="card-columns">
@@ -16,7 +21,9 @@ const Section = (props) => {
                 strong in your family. Pass on what you have learned.
               </p>
               <footer className="blockquote-footer text-white">
-                <small><cite>Yoda</cite></small>
+                <small>
+                  <cite>Yoda</cite>
+                </small>
               </footer>
             </blockquote>
           </div>
@@ -48,10 +55,30 @@ const Section = (props) => {
                 Henceforth, you shall be known as Darth… Vader.
               </p>
               <footer className="blockquote-footer">
-                <small className="text-muted"><cite>Emperor Palpatine</cite></small>
+                <small className="text-muted">
+                  <cite>Emperor Palpatine</cite>
+                </small>
               </footer>
             </blockquote>
           </div>
+          <button
+            className="btn btnBrown m-2"
+            disabled={!!props.info && !!props.info.previous ? "" : "true"}
+            onClick={() => {
+              actions.getFetch(props.name, props.info.previous.replace("http", "https"));
+            }}
+          >
+            Prev
+          </button>
+          <button
+            className="btn btnBrown m-2"
+            disabled={!!props.info && !!props.info.next ? "" : "true"}
+            onClick={() => {
+              actions.getFetch(props.name, props.info.next.replace("http", "https"));
+            }}
+          >
+            Next
+          </button>
         </div>
       </div>
     </>

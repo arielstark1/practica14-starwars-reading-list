@@ -13,7 +13,7 @@ const Navbar = () => {
           alt="logo"
         />
       </Link>
-      <div className="dropdown">
+      <div className="dropdown dropdownColor">
         <button
           className="btn btnGreen dropdown-toggle"
           type="button"
@@ -25,7 +25,7 @@ const Navbar = () => {
           Favorites
         </button>
         <div
-          className="dropdown-menu dropdown-menu-right"
+          className="dropdown-menu dropdown-menu-right dropdownColor"
           aria-labelledby="dropdownMenuButton"
         >
           {!!store.favourites && store.favourites.length > 0 ? (
@@ -34,10 +34,10 @@ const Navbar = () => {
                 return (
                   <div
                     key={index}
-                    className="dropdown-item my-2 d-flex justify-content-between align-middle"
+                    className="dropdown-item my-2 d-flex justify-content-between"
                   >
                     <Link
-                      className="text-dark my-auto align-middle"
+                      className="text-dark my-auto"
                       to={`/details/${fav.section}/${fav.id}`}
                     >
                       {fav.name}{" "}
@@ -48,7 +48,7 @@ const Navbar = () => {
                         actions.deleteFavourite(index);
                       }}
                     >
-                      <i className="far fa-trash-alt my-auto ml-5 align-middle"></i>
+                      <i className="far fa-trash-alt my-auto ml-5 "></i>
                     </button>
                   </div>
                 );

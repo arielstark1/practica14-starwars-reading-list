@@ -15,7 +15,7 @@ const VehiclesDetails = (props) => {
           <Navbar />
       <div className="container">
         <Jumbotron info={store.vehicles} id={id} />
-        <hr className="my-4 bg-danger" />
+        <hr className="my-4" />
         <div className="row">
           <LittleInfo
             section={"vehicles"}
