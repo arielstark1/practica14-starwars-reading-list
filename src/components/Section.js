@@ -14,7 +14,7 @@ const Section = (props) => {
       </div>
       <div className="container">
         <div className="card-columns">
-          <div className="card text-white bg-dark text-center p-3">
+          <div className="card text-white bg-card text-center p-3">
             <blockquote className="blockquote mb-0">
               <p className="font-italic">
                 When gone am I, the last of the Jedi will you be. The Force runs
@@ -30,7 +30,7 @@ const Section = (props) => {
           {!!props.info &&
             props.info.results.map((element, index) => {
               return (
-                <div className="card text-white bg-dark p-3" key={index}>
+                <div className="card text-white bg-card p-3" key={index}>
                   <Card
                     section={props.name}
                     title={element.name}
@@ -48,7 +48,7 @@ const Section = (props) => {
                 </div>
               );
             })}
-          <div className="card text-white bg-dark p-3">
+          <div className="card text-white bg-card p-3">
             <blockquote className="blockquote mb-0 card-body">
               <p className="font-italic">
                 The Force is strong with you. A powerful Sith you will become.

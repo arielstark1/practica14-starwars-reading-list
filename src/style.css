@@ -1,9 +1,13 @@
 #root {
-  background-color: rgb(95, 134, 139);
+  background-color: rgb(234,234,195);
 }
 
 body {
-  background-color: rgb(95, 134, 139);
+  background-color: rgb(234,234,195);
+}
+.bg-card{
+  background-color: rgb(163,151,135);
+
 }
 .logo {
   width: 200px;
@@ -17,7 +21,7 @@ body {
 
 hr {
   height: 2px;
-  background-color: rgb(20, 14, 14);;
+  background-color: rgb(84,0,39);;
 }
 
 .cardTitle {
@@ -27,28 +31,29 @@ hr {
 }
 
 .btnGreen {
-  background-color: seashell;
-  color: rgb(20, 14, 14);
+  background-color: rgb(48,163,180) ;
+  color: rgb(234,235,195);
 }
 
 .navbarColor {
-  background-color: rgb(183, 187, 168);
+  background-color: rgb(163,151,135);
 }
 
 .btnFav {
-  background-color: seashell;
+  background-color: rgb(48,163,180);
 }
 
 
 .btnBrown{
-  background-color: rgb(169,110,69);
-  color: seashell
+  background-color: rgb(84,0,39);
+  color: rgb(234,235,195);
 }
 
 .detailColor{
-  color: rgb(183, 187, 168);
+  color: rgb(84,0,39);
 }
 
 .dropdownColor {
-  background-color: seashell;
+  background-color: rgb(163,151,135)
+
 }
